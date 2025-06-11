@@ -8,6 +8,13 @@ def test_turno_correcto():
     turno = t.generar_turno("CAJ")
     assert turno == "CAJ-001"
 
+#Prueba para verificar que los tipos definidos de turnos funcionen
+def test_tipos_validos():
+    t = Turnero()
+    for tipo in ["CAJ", "PERS", "REC", "JOP"]:
+        turno = t.generar_turno(tipo)
+        assert turno.startswith(tipo)
+
 #Prueba incorrecta para que falle a propósito
 #def test_turno_incorrecto_fallido():
     #t = Turnero()
