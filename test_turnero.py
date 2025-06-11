@@ -21,7 +21,12 @@ def test_tipo_invalido():
     with pytest.raises(ValueError):
         t.generar_turno("X")  # Tipo inválido
 
-
+#Prueba para verificar el formato 
+def test_formato_turno():
+    t = Turnero()
+    turno = t.generar_turno("REC")
+    assert turno.startswith("REC-")
+    assert len(turno) == 7  # Ej: REC-001 → 7 caracteres
 
 #Prueba incorrecta para que falle a propósito
 #def test_turno_incorrecto_fallido():
