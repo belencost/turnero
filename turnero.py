@@ -12,6 +12,9 @@ class Turnero:
     def generar_turno(self, tipo):
         if not isinstance(tipo, str):
             raise ValueError("El tipo de turno debe ser texto")
+        
+        tipo = tipo.strip().upper()  # Limpia espacios y convierte a mayúsculas
+
         if tipo.strip() not in self.contadores:
             raise ValueError("Tipo de turno inválido")
         
