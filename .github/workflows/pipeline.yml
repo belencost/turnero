@@ -1,6 +1,5 @@
 name: CI con Tests y SonarCloud
 
-# Este workflow se activa cuando hay un push o pull request a la rama main
 on:
   push:
     branches: [ main ]
@@ -9,35 +8,37 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest  
+    runs-on: ubuntu-latest
 
     steps:
     - name: Checkout del código
       uses: actions/checkout@v3
+
     - name: Configurar Python
       uses: actions/setup-python@v4
       with:
         python-version: '3.10'
+
     - name: Instalar dependencias
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    # Ejecutar las pruebas automatizadas con pytest
     - name: Ejecutar pruebas
       run: |
         pytest
 
-    # Ejecutar análisis con SonarCloud
-    - name: Escaneo SonarCloud 
-      uses: SonarSource/sonarcloud-scan-action@v2
+    - name: Ejecutar main por consola
+      run: |
+        python main.py
+
+    - name: Escaneo SonarCloud
+      uses: SonarSource/sonarcloud-github-action@master
+      with:
+        projectBaseDir: .
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         SONAR_PROJECT_KEY: ${{ secrets.SONAR_PROJECT_KEY }}
         SONAR_ORGANIZATION: ${{ secrets.SONAR_ORGANIZATION }}
 
-
-    - name: Ejecutar main por consola
-      run: |
-        python main.py
 
