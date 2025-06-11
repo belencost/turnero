@@ -19,7 +19,7 @@ for codigo, nombre in opciones.items():
     print(f"{codigo} - {nombre}")
 
 while True:
-    eleccion = input("Ingrese tipo de turno: ").strip().upper()
+    eleccion = input("Ingrese tipo de turno: (CAJ, COM, REC, JOB)").strip().upper()
     if eleccion == "SALIR":
         print("Gracias por usar el sistema. ¡Hasta luego!")
         break
