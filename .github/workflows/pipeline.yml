@@ -28,10 +28,6 @@ jobs:
       run: |
         pytest
 
-    - name: Ejecutar main por consola
-      run: |
-        python main.py
-
     - name: Escaneo SonarCloud
       uses: SonarSource/sonarcloud-github-action@master
       with:
