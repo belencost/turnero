@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Turnero del Banco</title>
+  <style>
+    body { font-family: Arial; text-align: center; padding: 50px; }
+    button { margin: 10px; padding: 10px 20px; font-size: 16px; }
+    #resultado { margin-top: 30px; font-size: 20px; font-weight: bold; color: darkblue; }
+  </style>
+</head>
+<body>
+  <h1>Turnero del Banco</h1>
+  <p>Seleccione un tipo de turno:</p>
+  <button onclick="solicitarTurno('CAJ')">Caja</button>
+  <button onclick="solicitarTurno('PERS')">Atención personalizada</button>
+  <button onclick="solicitarTurno('REC')">Reclamos</button>
+  <button onclick="solicitarTurno('JOP')">Jubilaciones / ANSES</button>
+
+  <div id="resultado"></div>
+
+  <script>
+    function solicitarTurno(tipo) {
+      fetch('/generar_turno', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ tipo })
+      })
+      .then(res => res.json())
+      .then(data => {
+        if (data.turno) {
+          document.getElementById("resultado").innerText = `Su turno es: ${data.turno}`;
+        } else {
+          document.getElementById("resultado").innerText = "Error al generar turno.";
+        }
+      });
+    }
+  </script>
+</body>
+</html>
+

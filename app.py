@@ -1,0 +1,22 @@
+from flask import Flask, render_template, request, jsonify
+from turnero import Turnero
+
+app = Flask(__name__)
+turnero = Turnero()
+
+@app.route("/")
+def index():
+    return render_template("index.html")
+
+@app.route("/generar_turno", methods=["POST"])
+def generar_turno():
+    data = request.get_json()
+    tipo = data.get("tipo")
+    try:
+        turno = turnero.generar_turno(tipo)
+        return jsonify({"turno": turno})
+    except ValueError:
+        return jsonify({"error": "Tipo inválido"}), 400
+
+if __name__ == "__main__":
+    app.run(debug=True)
