@@ -21,7 +21,7 @@ for codigo, nombre in opciones.items():
 while True:
     eleccion = input("Ingrese tipo de turno: (CAJ, COM, REC, JOB)").strip().upper()
     if eleccion == "SALIR":
-        print("Gracias por usar el sistema. ¡Hasta luego!")
+        print("Gracias por usar el sistema.. ¡Hasta luego!")
         break
     elif eleccion in opciones:
         turno = t.generar_turno(eleccion)
