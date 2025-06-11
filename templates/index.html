@@ -7,18 +7,27 @@
     body { font-family: Arial; text-align: center; padding: 50px; }
     button { margin: 10px; padding: 10px 20px; font-size: 16px; }
     #resultado { margin-top: 30px; font-size: 20px; font-weight: bold; color: darkblue; }
+    #estado { margin-top: 20px; font-size: 16px; }
   </style>
 </head>
 <body>
+
   <h1>Turnero del Banco</h1>
   <p>Seleccione un tipo de turno:</p>
+
+  <!-- Botones -->
   <button onclick="solicitarTurno('CAJ')">Caja</button>
   <button onclick="solicitarTurno('PERS')">Atención personalizada</button>
   <button onclick="solicitarTurno('REC')">Reclamos</button>
   <button onclick="solicitarTurno('JOP')">Jubilaciones / ANSES</button>
 
+  <!-- Resultado del turno -->
   <div id="resultado"></div>
 
+  <!-- Estado de los contadores -->
+  <div id="estado"></div>
+
+  <!-- Script que maneja la lógica -->
   <script>
     function solicitarTurno(tipo) {
       fetch('/generar_turno', {
@@ -30,12 +39,24 @@
       .then(data => {
         if (data.turno) {
           document.getElementById("resultado").innerText = `Su turno es: ${data.turno}`;
+
+          const estado = data.estado;
+          let texto_estado = "Turnos generados:";
+          texto_estado += `<br>Caja: ${estado.CAJ || 0}`;
+          texto_estado += `<br>At. personalizada: ${estado.PERS || 0}`;
+          texto_estado += `<br>Reclamos: ${estado.REC || 0}`;
+          texto_estado += `<br>Jubilaciones/ANSES: ${estado.JOP || 0}`;
+
+          document.getElementById("estado").innerHTML = texto_estado;
         } else {
           document.getElementById("resultado").innerText = "Error al generar turno.";
+          document.getElementById("estado").innerHTML = "";
         }
       });
     }
   </script>
+
 </body>
 </html>
+
 

@@ -14,7 +14,10 @@ def generar_turno():
     tipo = data.get("tipo")
     try:
         turno = turnero.generar_turno(tipo)
-        return jsonify({"turno": turno})
+        return jsonify({
+            "turno": turno,
+            "estado": turnero.contadores  # devolvemos el estado actual
+        })
     except ValueError:
         return jsonify({"error": "Tipo inválido"}), 400
 
