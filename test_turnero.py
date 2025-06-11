@@ -15,6 +15,14 @@ def test_tipos_validos():
         turno = t.generar_turno(tipo)
         assert turno.startswith(tipo)
 
+#Excepción cuando el turno no es válido
+def test_tipo_invalido():
+    t = Turnero()
+    with pytest.raises(ValueError):
+        t.generar_turno("X")  # Tipo inválido
+
+
+
 #Prueba incorrecta para que falle a propósito
 #def test_turno_incorrecto_fallido():
     #t = Turnero()
