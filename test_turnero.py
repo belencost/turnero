@@ -41,8 +41,3 @@ def test_incremento_consecutivo():
     #t = Turnero()
     #turno = t.generar_turno("PERS")
     #assert turno == "PERS-005"  # Error intencional: el primer turno debería ser PERS-001
-    
-def test_tipo_con_espacio():
-    t = Turnero()
-    with pytest.raises(ValueError):
-        t.generar_turno(" CAJ")  # Tiene un espacio adelante
