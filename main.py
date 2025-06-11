@@ -6,7 +6,7 @@ t = Turnero()
 # Diccionario de opciones disponibles
 opciones = {
     "CAJ": "Caja",
-    "COM": "Atención personalizada",
+    "PERS": "Atención personalizada",
     "REC": "Reclamos",
     "JOP": "Jubilaciones, pensiones, ANSES"
 }
@@ -19,7 +19,7 @@ for codigo, nombre in opciones.items():
     print(f"{codigo} - {nombre}")
 
 while True:
-    eleccion = input("Ingrese tipo de turno: (CAJ, COM, REC, JOB)").strip().upper()
+    eleccion = input("Ingrese tipo de turno: (CAJ, PERS, REC, JOB)").strip().upper()
     if eleccion == "SALIR":
         print("Gracias por usar el sistema.. ¡Hasta luego!")
         break
