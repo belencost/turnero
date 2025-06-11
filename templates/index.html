@@ -54,6 +54,19 @@
         }
       });
     }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      fetch('/estado')
+        .then(res => res.json())
+        .then(estado => {
+          let texto_estado = "Turnos generados:";
+          texto_estado += `<br>Caja: ${estado.CAJ || 0}`;
+          texto_estado += `<br>At. personalizada: ${estado.PERS || 0}`;
+          texto_estado += `<br>Reclamos: ${estado.REC || 0}`;
+          texto_estado += `<br>Jubilaciones/ANSES: ${estado.JOP || 0}`;
+          document.getElementById("estado").innerHTML = texto_estado;
+        });
+    });
   </script>
 
 </body>

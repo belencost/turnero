@@ -21,5 +21,9 @@ def generar_turno():
     except ValueError:
         return jsonify({"ERROR": "Tipo inválido"}), 400
 
+@app.route("/estado")
+def estado():
+    return jsonify(turnero.contadores)
+
 if __name__ == "__main__":
     app.run(debug=True)
