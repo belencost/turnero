@@ -28,8 +28,21 @@ def test_formato_turno():
     assert turno.startswith("REC-")
     assert len(turno) == 7  # Ej: REC-001 → 7 caracteres
 
-#Prueba incorrecta para que falle a propósito
-#def test_turno_incorrecto_fallido():
-    #t = Turnero()
-    #turno = t.generar_turno("PERS")
-    #assert turno == "PERS-005"  # Error intencional: el primer turno debería ser PERS-001
+#Prueba incremento del contador
+def test_incremento_consecutivo():
+    t = Turnero()
+    t.generar_turno("CAJ")       # CAJ-001
+    turno2 = t.generar_turno("CAJ")
+    assert turno2 == "CAJ-002"
+
+#Pruebas de fallo 
+
+def test_turno_incorrecto_fallido():
+    t = Turnero()
+    turno = t.generar_turno("PERS")
+    assert turno == "PERS-005"  # Error intencional: el primer turno debería ser PERS-001
+
+def test_tipo_numerico():
+    t = Turnero()
+    with pytest.raises(ValueError):
+        t.generar_turno(123)
