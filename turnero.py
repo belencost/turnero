@@ -10,12 +10,18 @@ class Turnero:
         }
 
     def generar_turno(self, tipo):
-        #Si el tipo ingresado no es válido, se lanza un error
-        if tipo not in self.contadores:
-            raise ValueError("Tipo de turno no válido")
-       
-       #Sumamos 1 al contador correspondiente
+        if not isinstance(tipo, str):
+            raise ValueError("El tipo de turno debe ser texto")
+        if tipo.strip() not in self.contadores:
+            raise ValueError("Tipo de turno inválido")
         
+        #Sumamos 1 al contador correspondiente
+
+        tipo = tipo.strip()
         self.contadores[tipo] += 1
-        return f"{tipo}-{self.contadores[tipo]:03d}"
+        numero = self.contadores[tipo]
+        return f"{tipo}-{numero:03d}"
+
+       
+
 
