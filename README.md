@@ -9,12 +9,11 @@ El objetivo principal fue aplicar conceptos clave de integración continua como:
 - Análisis de código con **SonarCloud**
 - Despliegue automático con **Render**
 - Interfaz visual conectada al backend con HTML+JS 
-- URL del proyecto: [https://nombre-del-proyecto.onrender.com](https://turneroci.onrender.com/)
+- URL del proyecto: [https://turneroci.onrender.com](https://turneroci.onrender.com/)
 
 ---
 
 ![Herramientas utilizadas en el entorno de IC](img/ENTORNOCI.png)
-
 
 ## 📁 Instalación
 
