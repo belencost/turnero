@@ -18,7 +18,7 @@ class Turnero:
         #Sumamos 1 al contador correspondiente
 
         tipo = tipo.strip()
-        self.contadores[tipo] += 1
+        #self.contadores[tipo] += 1
         numero = self.contadores[tipo]
         return f"{tipo}-{numero:03d}" #Formato del turno
 
