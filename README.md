@@ -13,30 +13,5 @@ El objetivo principal fue aplicar conceptos clave de integración continua como:
 
 ---
 
-![Herramientas utilizadas en el entorno de IC](img/ENTORNOCI.png)
-
-## 📁 Instalación
-
-1. Clonar el repositorio:
-
-```bash
-git clone https://github.com/belencost/turnero.git
-cd turnero
-```
-2. Instalar dependencias:
-
-```bash
-pip install -r requirements.txt
-```
-3. Iniciar servidor para ejecutar de forma local (Esto corre la app Flask localmente. Se puede acceder a http://localhost:5000) :
-
-```bash
-python app.py
-```
-4. Ejecutar pruebas y obtener cobertura de las pruebas
-
-```bash
-pytest --cov=turnero --cov-report=term
-```
 
 
