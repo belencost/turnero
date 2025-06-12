@@ -30,13 +30,13 @@ jobs:
         pytest --cov=turnero --cov=app --cov-report=term --cov-report=html --cov-report=xml -v
     
     - name: Subir HTML con cobertura
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: coverage-report
         path: htmlcov/
     
     - name: Notificar en Discord si fallan los tests
-      if: failure()  
+      if: always() && failure()  
       uses: Ilshidur/action-discord@master
       with:
         args: |
@@ -46,7 +46,7 @@ jobs:
         DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
     
     - name: Notificar en Discord - Tests OK
-      if: success()
+      if: always() && success()
       uses: Ilshidur/action-discord@master
       with:
         args:  |
