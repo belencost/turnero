@@ -28,6 +28,10 @@ jobs:
     - name: Ejecutar pruebas con cobertura
       run: |
         pytest --cov=turnero --cov-report=xml
+    
+    - name: Ejecutar pruebas con detalles
+      run: |
+        pytest -v --cov=turnero --cov-report=term
 
     - name: Escaneo SonarCloud
       uses: SonarSource/sonarcloud-github-action@master
