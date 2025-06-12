@@ -1,4 +1,4 @@
-# 🌀 Turnero Web - Taller de Integración Continua
+# Turnero Web - Taller de Integración Continua
 
 Este proyecto forma parte del **Taller de Integración Continua**, y consiste en un sistema simples de turnos bancarios desarrollado con **Python (Flask)** y una interfaz visual en **HTML/JavaScript**.
 
