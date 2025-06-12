@@ -1,7 +1,7 @@
 
 class Turnero:
     def __init__(self):
-#Se lleva la cuenta de cuantos turnos se generaron por tipo 
+#Se lleva la cuenta de cuantos turnos se generaron por tipo en un diccionario 
         self.contadores = {
             "CAJ": 0, #Caja
             "PERS": 0, #Atención personalizada 
@@ -10,10 +10,7 @@ class Turnero:
         }
 
     def generar_turno(self, tipo):
-        if not isinstance(tipo, str):
-            raise ValueError("El tipo de turno debe ser texto")
-        
-        tipo = tipo.strip().upper()  # Limpia espacios y convierte a mayúsculas
+        # Si se pasa un tipo no válido, se lanza un error
 
         if tipo.strip() not in self.contadores:
             raise ValueError("Tipo de turno inválido")
@@ -23,7 +20,7 @@ class Turnero:
         tipo = tipo.strip()
         self.contadores[tipo] += 1
         numero = self.contadores[tipo]
-        return f"{tipo}-{numero:03d}"
+        return f"{tipo}-{numero:03d}" #Formato del turno
 
        
 

@@ -10,6 +10,7 @@ El objetivo principal fue aplicar conceptos clave de integración continua como:
 - Despliegue automático con **Render**
 - Interfaz visual conectada al backend con HTML+JS 
 - URL del proyecto: [https://turneroci.onrender.com](https://turneroci.onrender.com/)
+- Feedback constante mediante notificaciones a Discord utilizando Weebhook y Gmail con GithubActions
 
 ---
 

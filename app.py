@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, jsonify
 from turnero import Turnero
 
 app = Flask(__name__)
-turnero = Turnero()
+turnero = Turnero() #Se instancia la clase que maneja la lógica del turno
 
 @app.route("/")
 def index():
@@ -10,7 +10,7 @@ def index():
 
 @app.route("/generar_turno", methods=["POST"])
 def generar_turno():
-    data = request.get_json()
+    data = request.get_json() #Solicitud del turno a API
     tipo = data.get("tipo")
     try:
         turno = turnero.generar_turno(tipo)
