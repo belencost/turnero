@@ -19,7 +19,7 @@ def generar_turno():
             "estado": turnero.contadores  # devolvemos el estado actual
         })
     except ValueError:
-        return jsonify({"ERROR!": "Tipo inválido"}), 400
+        return jsonify({"ERROR": "Tipo inválido"}), 400
 
 @app.route("/estado")
 def estado():
