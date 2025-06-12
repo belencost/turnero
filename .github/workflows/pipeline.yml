@@ -32,6 +32,22 @@ jobs:
     - name: Ejecutar pruebas con detalles
       run: |
         pytest -v --cov=turnero --cov-report=term
+    
+    - name: Notificar en Discord si fallan los tests
+      if: failure()  
+      uses: Ilshidur/action-discord@master
+      with:
+        args: "🚨 Fallaron las pruebas automáticas del proyecto turnero. Te conviene revisar el workflow en GitHub Actions je."
+      env:
+        DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+    
+    - name: Notificar en Discord - Tests OK
+      if: success()
+      uses: Ilshidur/action-discord@master
+      with:
+        args: "✅ COOOrrectooo diría Susana. Las pruebas automáticas del proyecto turnero pasaron exitosamente"
+      env:
+        DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
 
     - name: Escaneo SonarCloud
       uses: SonarSource/sonarcloud-github-action@master
