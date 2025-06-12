@@ -38,7 +38,7 @@ jobs:
       uses: Ilshidur/action-discord@master
       with:
         args: |
-          "🚨 Fallaron las pruebas automáticas del proyecto turnero. Te conviene revisar el workflow en GitHub Actions je :()."
+          "🚨 Fallaron las pruebas automáticas del proyecto turnero. Te conviene revisar el workflow en GitHub Actions je :(."
           🔍 Ver detalles: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
       env:
         DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}

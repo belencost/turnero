@@ -37,7 +37,7 @@ def test_incremento_consecutivo():
 
 #Pruebas de fallo 
 
-def test_turno_incorrecto_fallido():
-    t = Turnero()
-    turno = t.generar_turno("PERS")
-    assert turno == "PERS-005"  # Error intencional: el primer turno debería ser PERS-001
+#def test_turno_incorrecto_fallido():
+    #t = Turnero()
+    #turno = t.generar_turno("PERS")
+    #assert turno == "PERS-005"  # Error intencional: el primer turno debería ser PERS-001
