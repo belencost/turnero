@@ -20,7 +20,7 @@ El objetivo principal fue aplicar conceptos clave de integración continua como:
 1. Clonar el repositorio:
 
 ```bash
-git clone https://github.com/tu_usuario/turnero.git
+git clone https://github.com/belencost/turnero.git
 cd turnero
 ```
 2. Instalar dependencias:
@@ -28,7 +28,7 @@ cd turnero
 ```bash
 pip install -r requirements.txt
 ```
-3. Iniciar servidor para ejecutar de forma local:
+3. Iniciar servidor para ejecutar de forma local (Esto corre la app Flask localmente. Se puede acceder a http://localhost:5000) :
 
 ```bash
 python app.py
