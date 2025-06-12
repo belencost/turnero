@@ -37,7 +37,9 @@ jobs:
       if: failure()  
       uses: Ilshidur/action-discord@master
       with:
-        args: "🚨 Fallaron las pruebas automáticas del proyecto turnero. Te conviene revisar el workflow en GitHub Actions je."
+        args: |
+          "🚨 Fallaron las pruebas automáticas del proyecto turnero. Te conviene revisar el workflow en GitHub Actions je :()."
+          🔍 Ver detalles: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
       env:
         DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
     
@@ -45,9 +47,13 @@ jobs:
       if: success()
       uses: Ilshidur/action-discord@master
       with:
-        args: "✅ COOOrrectooo diría Susana. Las pruebas automáticas del proyecto turnero pasaron exitosamente"
+        args:  |
+          "✅ COOOrrectooo diría Susana. Las pruebas automáticas del proyecto turnero pasaron exitosamente"
+          🔍 Ver detalles: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
       env:
         DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+    
+  
 
     - name: Escaneo SonarCloud
       uses: SonarSource/sonarcloud-github-action@master
