@@ -4,7 +4,7 @@ from app import app
 @pytest.fixture
 def client():
     app.config['TESTING'] = True
-    with app.test_client() as client: #Cliente de prueba para hacer get y post
+    with app.test_client() as client: #Cliente de prueba para hacer get y POST
         yield client
 
 def test_index(client): #Se simula entrar a la página y ver si el servidor responde
