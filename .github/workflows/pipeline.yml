@@ -25,13 +25,15 @@ jobs:
         pip install -r requirements.txt
         pip install pytest pytest-cov
 
-    - name: Ejecutar pruebas con cobertura
+    - name: Ejecutar tests con cobertura (completo)
       run: |
-        pytest --cov=turnero --cov-report=xml
+        pytest --cov=turnero --cov=app --cov-report=term --cov-report=html --cov-report=xml -v
     
-    - name: Ejecutar pruebas con detalles
-      run: |
-        pytest -v --cov=turnero --cov-report=term
+    - name: Subir HTML con cobertura
+      uses: actions/upload-artifact@v3
+      with:
+        name: coverage-report
+        path: htmlcov/
     
     - name: Notificar en Discord si fallan los tests
       if: failure()  
