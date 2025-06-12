@@ -30,3 +30,10 @@ def test_estado(client):
     assert response.status_code == 200
     data = response.get_json()
     assert "PERS" in data
+
+def test_estado_inicial(client):
+    response = client.get("/estado")     # Verificamos que todos los contadores estén en 0 al inicio
+    assert response.status_code == 200
+    data = response.get_json()
+    assert data == {"CAJ": 0, "PERS": 0, "REC": 0, "JOP": 0}
+
