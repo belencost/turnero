@@ -13,5 +13,5 @@ El objetivo principal fue aplicar conceptos clave de integración continua como:
 
 ---
 
-
+![Herramientas utilizadas para el Entorno CI](img/ENTORNOCI.png)
 
